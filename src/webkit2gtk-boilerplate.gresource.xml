@@ -1,0 +1,5 @@
+<gresources>
+	<gresource prefix="/io/github/webkit2gtk-boilerplate">
+		<file compressed="true" preprocess="xml-stripblanks">ui/window.ui</file>
+	</gresource>
+</gresources>

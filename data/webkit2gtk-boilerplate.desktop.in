@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Webkit2gtk Boilerplate
+GenericName=Panel
+Comment=Stupidly simple.
+Categories=Utility;
+Type=Application
+Exec=webkit2gtk-boilerplate
+Icon=webkit2gtk-boilerplate
+Terminal=false
+NoDisplay=false

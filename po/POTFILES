@@ -1,0 +1,6 @@
+data/webkit-panel.desktop.in
+data/webkit-panel.appdata.xml.in
+data/io.github.webkitpanel.gschema.xml
+
+src/main.vala
+src/custom-web-view.vala

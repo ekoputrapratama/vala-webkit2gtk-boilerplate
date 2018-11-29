@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Webkit2Gtk Boilerplate</title>
+    <style>
+      body {
+        /* background: transparent !important; */
+        position: relative;
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        user-select: none;
+        pointer-events: none;
+      }
+
+      .rotate {
+        animation: rotate 1s ease-in-out;
+      }
+
+      @keyframes rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Hello World!</h1>
+    <script>
+      console.log(sayHello());
+      console.log("Webkit2GtkBoilerplate", Webkit2GtkBoilerplate);
+    </script>
+  </body>
+</html>

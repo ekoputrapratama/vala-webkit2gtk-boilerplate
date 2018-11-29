@@ -1,0 +1,1 @@
+option('pkgdir', type : 'string', value : '/opt/webkit2gtk-boilerplate', description : 'Webkit Panel data directory')

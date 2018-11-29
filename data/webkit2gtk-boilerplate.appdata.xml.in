@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+	<id>webkit2gtk-boilerplate.desktop</id>
+	<licence>CC0</licence>
+  <name>Webkit2gtk Boilerplate</name>
+	<description>
+	</description>
+  <keywords>
+    <keyword>WebView</keyword>
+    <keyword>launch</keyword>
+    <keyword>Webkit</keyword>
+    <keyword>start</keyword>
+  </keywords>
+  <provides>
+    <binary>webkit2gtk-boilerplate</binary>
+  </provides>
+</component>

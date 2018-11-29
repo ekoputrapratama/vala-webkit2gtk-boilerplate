@@ -1,0 +1,24 @@
+<schemalist>
+	<enum id="PlankHideType">
+		<value nick="none" value="0"/>
+		<value nick="intelligent" value="1"/>
+		<value nick="auto" value="2"/>
+		<value nick="dodge-maximized" value="3"/>
+		<value nick="window-dodge" value="4"/>
+		<value nick="dodge-active" value="5"/>
+	</enum>
+
+	<enum id="GtkAlignType">
+		<value nick="fill" value="0"/>
+		<value nick="start" value="1"/>
+		<value nick="end" value="2"/>
+		<value nick="center" value="3"/>
+	</enum>
+
+	<enum id="GtkPositionType">
+		<value nick="left" value="0"/>
+		<value nick="right" value="1"/>
+		<value nick="top" value="2"/>
+		<value nick="bottom" value="3"/>
+	</enum>
+</schemalist>

@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+if [ $1 = "start" ];
+then 
+  cd build/src && ./webkit2gtk-boilerplate
+elif [ $1 = "build" ];
+then
+  rm -rf build && meson build && cd build && ninja && cd ..
+elif [ $1 = "install" ];
+then
+  cd build && ninja install
+fi
