@@ -9,7 +9,7 @@ namespace Webkit2gtkBoilerplate {
 	public class JSApi : GLib.Object {
 		private int count = 0;
 		private WebKit.WebPage page;
-		public signal void on_void_callback();
+		public signal void on_string_callback();
 
 		//  public void add_div(string color) {
 		//      int x = Random.int_range(0, 300),
@@ -40,7 +40,6 @@ namespace Webkit2gtkBoilerplate {
 		[DBus(visible = false)]
 		public void on_page_created(WebKit.WebExtension extension, WebKit.WebPage page) {
 			this.page = page;
-			//  on_void_callback();
 		}
 
 		[DBus(visible = false)]
@@ -49,36 +48,24 @@ namespace Webkit2gtkBoilerplate {
 			unowned JS.Context context = (JS.GlobalContext)frame.get_javascript_context_for_script_world(world);;
 			unowned JS.Object global = context.get_global_object();
 
-			JS.String name = new JS.String.with_utf8_c_string("sayHello");
-      JS.Value ex;
-      JS.Value str;
-      JS.Value objo;
-
-      unowned JS.Object cb = context.make_function(name, void_callback);
-      unowned JS.Object obj = context.make_object(null, null);
-      obj.set_property(context,name,JS.Value.string(context, new JS.String("Hello From Native Code")), JS.PropertyAttribute.None);
+      unowned JS.Object cb = context.make_function(new JS.String.with_utf8_c_string("sayHello"), string_callback);
+      unowned JS.Value obj = JSUtils.object_from_JSON(context, "{
+        \"number\": 1,
+        \"string\": \"Hello World!\",
+        \"array\": [\"str1\",\"str2\",\"str3\"]
+      }");
+      
 			global.set_property(context,
-			                    name,
+      new JS.String.with_utf8_c_string("sayHello"),
 			                    cb,
 			                    JS.PropertyAttribute.ReadOnly);
       global.set_property(context,
       new JS.String.with_utf8_c_string("Webkit2GtkBoilerplate"),
 			                    obj,
-			                    JS.PropertyAttribute.ReadOnly);
-		}
-		public static unowned JS.Value exit(JS.Context ctx,
-		                                    JS.Object function,
-		                                    JS.Object thisObject,
-		                                    JS.Value[] arguments,
-		                                    out unowned JS.Object exception)
-		{
-			exception = null;
-			message("exit got called");
-			JS.String string = new JS.String.with_utf8_c_string("Hello From Native Code");
-			return JS.Value.undefined(ctx);
+			                    JS.PropertyAttribute.None);
 		}
 
-		public static unowned JS.Value void_callback(JS.Context ctx,
+		public static unowned JS.Value string_callback(JS.Context ctx,
 		                                             JS.Object function,
 		                                             JS.Object thisObject,
 		                                             JS.Value[] args,
@@ -96,8 +83,8 @@ namespace Webkit2gtkBoilerplate {
 					data[i] = variant_from_value(ctx, args[i]);
 				}
 				if(jsapi != null) {
-					jsapi.on_void_callback();
-					message("void_callback got called");
+					jsapi.on_string_callback();
+					message("string_callback got called");
         }
         unowned JS.Value str = JS.Value.string(ctx, new JS.String("Hello From Native Code"));
         return str;

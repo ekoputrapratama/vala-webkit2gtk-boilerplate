@@ -47,7 +47,7 @@ namespace Webkit2gtkBoilerplate.JSUtils {
 	public unowned JS.Value object_from_JSON(JS.Context ctx, string json) {
 		unowned JS.Value ? result = JS.Value.from_JSON(ctx, new JS.String(json == "" ? "{}" : json));
 		if(result == null || !result.is_object(ctx)) {
-			result = ctx.make_object();
+			result = ctx.make_object(null,null);
 		}
 		return result;
 	}

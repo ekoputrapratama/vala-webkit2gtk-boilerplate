@@ -44,8 +44,8 @@ namespace Webkit2gtkBoilerplate {
 			//  webview.web_inspector.inspect_web_view.connect(getInspectorView);
 			this.webview.load_changed.connect(load_changed);
 			add(this.webview);
-			this.webview.on_void_callback.connect(() => {
-				message("on_void_callback called");
+			this.webview.on_string_callback.connect(() => {
+				message("on_string_callback called");
       });
       
 			show_all();
