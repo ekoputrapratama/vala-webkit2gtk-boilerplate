@@ -11,23 +11,6 @@ namespace Webkit2gtkBoilerplate {
 		private WebKit.WebPage page;
 		public signal void on_string_callback();
 
-		//  public void add_div(string color) {
-		//      int x = Random.int_range(0, 300),
-		//          y = Random.int_range(0, 300);
-		//      count += 1;
-		//      WebKit.DOM.Document document = page.get_dom_document();
-		//      try {
-		//              WebKit.DOM.Element el = document.create_element("div");
-		//              el.append_child(document.create_text_node(@"$count"));
-		//              el.set_attribute("style", @"background: $color; left: $x; top: $y;");
-		//              el.set_attribute("id", @"$count");
-		//              ((WebKit.DOM.EventTarget)el).add_event_listener_with_closure("click", on_div_clicked,
-		//                                                                           false);
-		//              document.body.insert_before(el, null);
-		//      } catch(Error error) {
-		//              warning("Oh noes: %s", error.message);
-		//      }
-		//  }
 		[DBus(visible = false)]
 		public void on_bus_aquired(DBusConnection connection) {
 			try {
@@ -76,7 +59,6 @@ namespace Webkit2gtkBoilerplate {
 			
 			Variant[] ? data = null;
 
-			//  if(args.length > 0) {
 			try {
 
 				for(var i = 0; i < args.length; i++) {
@@ -93,7 +75,6 @@ namespace Webkit2gtkBoilerplate {
 				exception = create_exception(ctx, "Argument %d: %s".printf(1, e.message));
 				return undefined;
 			}
-			//  }
 			return undefined;
 		}
 	}

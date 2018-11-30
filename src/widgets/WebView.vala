@@ -29,12 +29,9 @@ namespace Webkit2gtkBoilerplate {
 		}
 		construct
 		{
-			//  config_folder = Paths.AppConfigFolder.get_child("dock1");
-			//  launchers_folder = config_folder.get_child("launchers");
+      
 		}
 		public void init() {
-			Gdk.RGBA transparent = {red:0, green:0, blue:0, alpha: 0};
-			//  this.set_background_color(transparent);
 
 			WebKit.Settings settings = this.get_settings();
 			settings.enable_plugins = true;
@@ -48,7 +45,6 @@ namespace Webkit2gtkBoilerplate {
 			try {
 				messenger = connection.get_proxy_sync("io.github.webkit2gtk-boilerplate.JSApi", "/io/github/webkit2gtk-boilerplate/jsapi",
 				                                      DBusProxyFlags.NONE, null);
-				//  messenger.div_clicked.connect((num) => { div_clicked(num); });
 				messenger.on_string_callback.connect(() => {
 					message("on_string_callback");
 					on_string_callback();

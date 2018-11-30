@@ -15,9 +15,6 @@ namespace Webkit2gtkBoilerplate {
 
 		construct
 		{
-      //  type = Gtk.WindowType.TOPLEVEL;
-      //  type_hint = Gdk.WindowTypeHint.DESKTOP;
-			
 			debug = get_variable("WEBKIT2GTK_BOILERPLATE_DEBUG");
 		}
 
@@ -40,10 +37,9 @@ namespace Webkit2gtkBoilerplate {
 			this.webview = new Webkit2gtkBoilerplate.WebView.with_context(context);
 
 			UserContentManager contman = this.webview.user_content_manager;
-			//  UserStyleSheet stylesheet = new UserStyleSheet("",WebKit.);
-			//  webview.web_inspector.inspect_web_view.connect(getInspectorView);
 			this.webview.load_changed.connect(load_changed);
-			add(this.webview);
+      add(this.webview);
+      
 			this.webview.on_string_callback.connect(() => {
 				message("on_string_callback called");
       });
@@ -51,9 +47,6 @@ namespace Webkit2gtkBoilerplate {
 			show_all();
 			var screen = this.get_screen();
 			var monitors = this.get_monitor_plug_names(this.get_screen());
-			//  for(int i = 0; i < monitors.length; i++) {
-
-			//  }
 			this.focus_out_event.connect(on_window_focus_out);
     }
 
@@ -145,7 +138,6 @@ namespace Webkit2gtkBoilerplate {
 		}
 		[GtkCallback]
 		public bool on_window_draw(Widget widget, Context ctx) {
-			//  update_input_shape();
 			return false;
 		}
 		public void load_changed(LoadEvent event) {
